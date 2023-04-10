@@ -16,11 +16,17 @@ const [toDo, setToDo] = useState([
   {"id": 2, "title": "Task 2", "status": false}
 ]);
 
-  const [newTast, setNewTask]=useState('');
+  const [newTask, setNewTask]=useState('');
   const [updateData, setUpdateData]=useState('');
 
   const addTask = () => {
-
+      if(newTask)
+      {
+        let num= toDo.length+1;
+        let newEntry ={id: num,title: newTask, status: false}
+        setToDo([...toDo,newEntry])
+        setNewTask('');
+      }
   }
 
   const deleteTask = (id) => {
@@ -43,12 +49,44 @@ const [toDo, setToDo] = useState([
 
 
   }
-
+  
 
   return (
     <div className="container App">
       <br></br>
       <h2>To Do List App (ReactJS)</h2>
+      <br></br>
+
+      {/*Update Task */}
+      <div className='row'>
+        <div className='col'>
+        <input className='form-control form-control-lg'></input>
+        </div>
+        <div className='col-auto'>
+        <button className='btn btn-lg btn-success mr-20'>Update</button>
+        <button className='btn btn-lg btn-warning'>Cancel</button>
+        </div>
+      </div>
+      <br></br>
+      
+      {/*Add Task */}
+
+      <div className='row'>
+        <div className='col'>
+            <input 
+            value={newTask}
+            onChange={ (e)=>setNewTask(e.target.value)}
+            className='form-control form-control-lg'>
+            </input>
+        </div>
+        <div className='col-auto'>
+          <button 
+          onClick={addTask}
+          className='btn btn-lg btn-success'>
+          Add Task
+          </button>
+        </div>
+      </div>
       <br></br>
 
 
@@ -57,6 +95,7 @@ const [toDo, setToDo] = useState([
     {toDo && toDo.length ? '' : 'No Tasks...'}   
 
     {toDo && toDo
+    .sort((a,b) => a.id > b.id ? 1: -1) //sortare taskuri
     .map((task,index)=>{
       return (
         <React.Fragment>
@@ -66,13 +105,13 @@ const [toDo, setToDo] = useState([
           <span className='taskText'>{task.title}</span>
             </div>
             <div className='iconsWrap'>
-              <span>
+              <span title="Completed / Not Completed">
                 <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon>
               </span>
-              <span>
+              <span title="Edit">
                 <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
               </span>
-              <span>
+              <span title="Remove">
                 <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
               </span>
             </div>
