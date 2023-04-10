@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
-  faCircle, faPen, faTrashCan
+  faCircle, faCircleCheck, faPen, faTrashCan
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -50,6 +50,40 @@ const [toDo, setToDo] = useState([
       <br></br>
       <h2>To Do List App (ReactJS)</h2>
       <br></br>
+
+
+    {   }
+     
+    {toDo && toDo.length ? '' : 'No Tasks...'}   
+
+    {toDo && toDo
+    .map((task,index)=>{
+      return (
+        <React.Fragment>
+          <div className='col taskBg'>
+            <div className={task.status ? 'done' : ''}>
+            <span className='taskNumber'>{index+1}</span>
+          <span className='taskText'>{task.title}</span>
+            </div>
+            <div className='iconsWrap'>
+              <span>
+                <FontAwesomeIcon icon={faCircleCheck}></FontAwesomeIcon>
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
+              </span>
+              <span>
+                <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
+              </span>
+            </div>
+          </div>
+          
+        </React.Fragment>
+      )
+    }
+    )
+    }
+
      
     </div>
   );
