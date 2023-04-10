@@ -1,66 +1,104 @@
-body{
-  background-color: #2C3333;
-  color: #ffff;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #242322;
+  color: #ffffff;
+}
+h2{
+  font-size: 50px;
+  font-weight:bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.taskBg {
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.taskBg:hover {
+  background-color: #8a8a8a;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.taskNumber {
+  transition: color 0.2s ease-in-out;
+}
+
+.taskBg:hover .taskNumber {
+  color: #ffffff;
+}
+
+.taskBg .iconsWrap span {
+  transition: color 0.2s ease-in-out;
+}
+
+.taskBg:hover .iconsWrap span {
+  color: #ffffff;
+}
 
 .App {
   text-align: center;
 }
-.taskBg{
-  background-color: #2E4F4F;
+
+.taskBg {
+  background-color: #000000;
   border-radius: 6px;
   margin-bottom: 20px;
   padding: 10px 140px 10px 15px;
-  text-align:left;
-  font-size:22px;
-  position:relative;
-
-
+  text-align: left;
+  font-size: 22px;
+  position: relative;
 }
-.taskBg .taskText{
-  flex:1;
+
+.taskBg .taskText {
+  flex: 1;
 }
-.taskBg .done .taskText{
+
+.taskBg .done .taskText {
   text-decoration: line-through;
   opacity: 0.3;
-  
 }
-.taskBg div{
+
+.taskBg div {
   display: flex;
   align-items: center;
 }
-.taskNumber{
-  color : #999;
-  border: 1px solid #999;
+
+.taskNumber {
+  color: #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 50%;
   width: 26px;
   height: 26px;
-  display:flex;
-  text-align:center;
-  font-size:14px;
+  display: flex;
+  text-align: center;
+  font-size: 14px;
   margin-right: 8px;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 }
-.taskBg .iconsWrap{
-  position:absolute;
+
+.taskBg .iconsWrap {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 15px;
   width: auto;
   display: inline-block;
 }
-.taskBg .iconsWrap span{
+
+.taskBg .iconsWrap span {
   display: inline-block;
   margin: 0px 10px 0 10px;
-  cursor:pointer;
-  color: #CBE4DE;
+  cursor: pointer;
+  color: #ffffff;
 }
-.taskBg .iconsWrap span:hover{
-  color:#ebeb7c;
+
+.taskBg .iconsWrap span:hover {
+  color: #ffffff;
 }
-.mr-20{
+
+.mr-20 {
   margin-right: 20px;
-  
 }
